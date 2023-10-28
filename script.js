@@ -161,7 +161,7 @@ submitBtn.addEventListener("click", function (e) {
   if (canSubmit)
     flashMsg(
       finalMsg,
-      "Congratsulations, you can fill in a basic form.",
+      "Congratulations, you can fill in a basic form.",
       "mediumspringgreen"
     );
   else {
