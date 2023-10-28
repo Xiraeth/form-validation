@@ -92,12 +92,6 @@ function checkPasswordValidity(e) {
       "Password needs to be at least at least 6 characters long"
     );
     errorMsgElement.textContent = passwordInput.validationMessage;
-  } else if (passwordInput.value.length > passwordInput.maxLength) {
-    errorMsgElement.style.opacity = "1";
-    passwordInput.setCustomValidity(
-      "Password needs to be a maximum of 16 characters long"
-    );
-    errorMsgElement.textContent = passwordInput.validationMessage;
   } else {
     errorMsgElement.style.opacity = "0";
     passwordInput.setCustomValidity("");
