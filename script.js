@@ -18,6 +18,41 @@ let passVisible = false;
 let confirmPassVisible = false;
 let counter = 0;
 
+emailInput.addEventListener("input", checkEmailValidity);
+countryInput.addEventListener("input", checkCountryValidity);
+zipcodeInput.addEventListener("input", checkZipcodeValidity);
+passwordInput.addEventListener("input", (e) => {
+  checkPasswordValidity(e);
+  confirmPasswordValidity(e);
+});
+confirmPasswordInput.addEventListener("input", confirmPasswordValidity);
+
+submitBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  checkOverallValidity();
+  if (canSubmit)
+    flashMsg(
+      finalMsg,
+      "Congratulations, you can fill in a basic form.",
+      "mediumspringgreen"
+    );
+  else {
+    if (counter === 0) {
+      flashMsg(
+        finalMsg,
+        "Why are you submitting when you see there are still invalid fields..?",
+        "crimson"
+      );
+      counter++;
+    } else if (counter > 0 && counter < 3) {
+      flashMsg(finalMsg, "Still trying? Really?", "crimson");
+      counter++;
+    } else {
+      flashMsg(finalMsg, "Ok I'm done do whatever you want", "crimson");
+    }
+  }
+});
+
 showPassIcon.addEventListener("click", function (e) {
   if (!passVisible) {
     passwordInput.type = "text";
@@ -140,40 +175,6 @@ function checkOverallValidity() {
     canSubmit = true;
   else canSubmit = false;
 }
-
-emailInput.addEventListener("input", checkEmailValidity);
-countryInput.addEventListener("input", checkCountryValidity);
-zipcodeInput.addEventListener("input", checkZipcodeValidity);
-passwordInput.addEventListener("input", (e) => {
-  checkPasswordValidity(e);
-  confirmPasswordValidity(e);
-});
-confirmPasswordInput.addEventListener("input", confirmPasswordValidity);
-submitBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  checkOverallValidity();
-  if (canSubmit)
-    flashMsg(
-      finalMsg,
-      "Congratulations, you can fill in a basic form.",
-      "mediumspringgreen"
-    );
-  else {
-    if (counter === 0) {
-      flashMsg(
-        finalMsg,
-        "Why are you submitting when you see there are still invalid fields..?",
-        "crimson"
-      );
-      counter++;
-    } else if (counter > 0 && counter < 3) {
-      flashMsg(finalMsg, "Still trying? Really?", "crimson");
-      counter++;
-    } else {
-      flashMsg(finalMsg, "Ok I'm done do whatever you want", "crimson");
-    }
-  }
-});
 
 function flashMsg(el, message, color) {
   el.style.color = color;
