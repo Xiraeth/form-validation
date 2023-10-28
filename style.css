@@ -1,0 +1,107 @@
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  background: rgb(40, 44, 52);
+}
+
+:root {
+  font-size: 30px;
+}
+
+* {
+  box-sizing: border-box;
+  color: white;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  color: springgreen;
+  font-style: italic;
+}
+
+form {
+  width: 1300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 50px auto 0;
+  border: 5px solid black;
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+
+label {
+  font-size: 1rem;
+  font-style: italic;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+input {
+  font-size: 1rem;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px 15px;
+  outline: none;
+  background: rgba(0, 0, 0, 0.3);
+  transition: all 0.15s;
+}
+
+input[type="submit"] {
+  color: mediumspringgreen;
+  padding: 10px 50px;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px 1px rgba(255, 255, 255, 0.5);
+  transition: all 0.15s;
+}
+
+input[type="submit"]:hover {
+  color: rgb(0, 214, 132);
+}
+
+input:focus {
+  background: transparent;
+}
+
+.inputWarnings {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  color: crimson;
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.hidden {
+  display: none;
+}
+
+input:not(input[type="submit"]):valid {
+  border-color: rgba(0, 255, 128, 0.5);
+}
+
+input:not(input[type="submit"]):invalid {
+  border-color: rgba(220, 20, 60, 0.5);
+}
+
+.fa-eye,
+.fa-eye-slash {
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.finalMessage {
+  opacity: 0;
+  text-align: center;
+  transition: opacity 0.5s;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form validation: Task 1</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/00de2a7224.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <h1>Fill in the form below to continue</h1>
+    <form novalidate>
+      <label for="email" id="test"
+        >What is your email?
+        <input
+          type="text"
+          autocomplete="off"
+          id="email"
+          autofocus
+          placeholder="example@gmail.com"
+          maxlength="20"
+          required
+        />
+        <p class="inputWarnings"></p>
+      </label>
+
+      <label for="country"
+        >What country do you live in?
+        <input
+          type="text"
+          autocomplete="off"
+          id="country"
+          maxlength="14"
+          required
+        />
+        <p class="inputWarnings"></p>
+      </label>
+
+      <label for="zipcode"
+        >Enter your zipcode:
+        <input
+          type="text"
+          required
+          autocomplete="off"
+          id="zipcode"
+          placeholder="Five-digit number"
+          maxlength="5"
+        />
+        <p class="inputWarnings"></p>
+      </label>
+
+      <label for="password"
+        >Choose a password
+        <input
+          type="password"
+          id="password"
+          required
+          minlength="6"
+          maxlength="26"
+        />
+        <i class="fa-solid fa-eye passIcon"></i>
+        <p class="inputWarnings"></p>
+      </label>
+
+      <label for="confirmPassword"
+        >Confirm your password
+        <input
+          type="password"
+          id="confirmPassword"
+          required
+          minlength="6"
+          maxlength="26"
+        />
+        <i class="fa-solid fa-eye confirmPassIcon"></i>
+        <p class="inputWarnings confirmPasswordWarningMsg"></p>
+      </label>
+
+      <input type="submit" value="Submit" id="submit" />
+    </form>
+    <p class="finalMessage"></p>
+  </body>
+</html>
